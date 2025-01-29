@@ -132,7 +132,7 @@ const Header = () => {
     <CgShoppingCart className='me-1 fs-2' />
     <div className='mb-5 position-absolute   cart-total'>
       <p className='cart-number'>
-        <span>{isLogin || cart ? cart?.totalProduct : 0   }</span>
+        <span>{cart ? cart.totalProduct : 0}</span>
       </p>
     </div>
   </Link>
