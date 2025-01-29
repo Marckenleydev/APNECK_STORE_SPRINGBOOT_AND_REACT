@@ -1,0 +1,64 @@
+
+
+import { Key } from '../enum/cache.key';
+import { IResponse } from '../models/IResponse';
+import { toastError, toastSuccess } from '../services/ToastService';
+import Cookies from 'js-cookie';
+export const baseUrl="https://apneck-store-springboot-and-react.onrender.com"
+
+export const isJsonContentType = (headers: Headers)=>
+     [
+        'application/vnd.api+json',
+         'application/json',
+          'application/vnd.hal+json',
+           'application/pdf',
+            'application/form-data'].includes(headers.get('content-type')?.trimEnd() || '');
+
+
+ export const processResponse = <T>(response: IResponse<T>, meta:unknown): IResponse<T> =>{
+   const { request } = meta as { request: Request };
+    if(request.url.includes('logout')){localStorage.removeItem(Key.LOGGEDIN);}
+
+    if(!request.url.includes('profile')){
+       toastSuccess(response.message)
+    }
+   //  console.log({response})
+    return response;
+
+ }
+
+
+ // eslint-disable-next-line @typescript-eslint/no-unused-vars
+ export const processError = (error: {status:number; data:IResponse<void>}, _meta: unknown):{status:number; data:IResponse<void>}=>{
+
+    if(error.data.code === 401 && error.data.status ==="UNAUTHORIZED" && error.data.message === "You are not logged in"){
+        localStorage.setItem(Key.LOGGEDIN,"false");
+    }
+   //  console.log(error.data.message)
+ toastError(error.data.message)
+    
+    return error;
+ }
+
+ // utils/token.ts
+// utils/token.ts
+
+
+// utils/token.ts
+
+export  const  isTokenExpired  = (): boolean => {
+  const token = Cookies.get('access-token');
+  if (!token) return true;
+
+  const payload = JSON.parse(atob(token.split('.')[1]));
+  if(payload.exp * 1000 < Date.now())
+   localStorage.setItem(Key.LOGGEDIN,"false");
+  return payload.exp * 1000 < Date.now();
+};
+
+export const removeToken = () => {
+  Cookies.remove('access-token');
+};
+
+
+ 
