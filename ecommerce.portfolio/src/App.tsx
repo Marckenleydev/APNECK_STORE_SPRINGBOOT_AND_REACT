@@ -1,6 +1,6 @@
 
 import './App.css'
-import ShopContext from './components/ShopContext'
+
 import { BrowserRouter, Route, Routes } from 'react-router'
 import Layout from './components/Layout'
 import Home from './pages/Home'
@@ -19,7 +19,7 @@ function App() {
 
   return (
     <>
-    <ShopContext>
+  
     <BrowserRouter>
     <Routes>
       <Route path='/' element={<Layout/>} >
@@ -38,7 +38,7 @@ function App() {
       </Routes>
       </BrowserRouter>
 
-      </ShopContext>
+  
    
     </>
   )

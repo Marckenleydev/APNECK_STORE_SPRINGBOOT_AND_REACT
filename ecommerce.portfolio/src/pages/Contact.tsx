@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars */
-import React from 'react'
+
 
 const contact = () => {
   return <>
@@ -19,7 +18,7 @@ const contact = () => {
         <div className="col-lg-6 col-md-12 p-3">
           <div className="map card m-auto embed-responsive embed-responsive-16by9">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63826.53634427054!2d37.09345325!3d-1.04201225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f4e5b27c66117%3A0xb6f8a7e126152c26!2sThika!5e0!3m2!1sen!2ske!4v1668532780442!5m2!1sen!2ske"
-             allowfullscreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+              loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
         <div className="col-lg-6 col-md-12">
@@ -57,7 +56,7 @@ const contact = () => {
               </div>
               <div className="col-12">
                   <label htmlFor="exampleFormControlTextarea1" className="form-label">Type in your message</label>
-                  <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  <textarea className="form-control" id="exampleFormControlTextarea1" rows={3}></textarea>
                 </div>
                 <div className='col-12 text-center gap-2'>
                 <button id='button-link' type="submit">Submit</button>

@@ -5,13 +5,13 @@ import { CiMail } from 'react-icons/ci'
 import { BiPhoneCall} from 'react-icons/bi'
 
 import { VscAccount } from 'react-icons/vsc'
-import { CgShoppingCart, CgProductHunt } from 'react-icons/cg'
+import { CgShoppingCart, } from 'react-icons/cg'
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
 import { NavLink , useLocation} from 'react-router-dom';
 import compare from "../assets/images/compare.svg";
 import wishlist from "../assets/images/wishlist.svg";
-import user from "../assets/images/user.svg";
+
 import logo from '../assets/images/apneck.png'
 import { productAPI } from '../services/ProductService'
 import { Key } from '../enum/cache.key'
@@ -19,10 +19,10 @@ import { userAPI } from '../services/UserService'
 
 
 
-const header = () => {
+const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
    const isLogin = localStorage.getItem(Key.LOGGEDIN) === "true";
-   const { data: cart } = isLogin ? productAPI.useFetchUserCartQuery(): { data: null } ;
+   const { data: cart,  } = isLogin ? productAPI.useFetchUserCartQuery(): { data: null } ;
    const {data:user} = isLogin ? userAPI.useFetchUserQuery(): { data: null } ;
    
 
@@ -132,7 +132,7 @@ const header = () => {
     <CgShoppingCart className='me-1 fs-2' />
     <div className='mb-5 position-absolute   cart-total'>
       <p className='cart-number'>
-        <span>{isLogin ? cart?.totalProduct : 0}</span>
+        <span>{isLogin || cart ? cart?.totalProduct : 0   }</span>
       </p>
     </div>
   </Link>
@@ -187,4 +187,4 @@ const header = () => {
   </>;
 };
 
-export default header
+export default Header

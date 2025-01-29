@@ -4,7 +4,7 @@ import ReactStars from "react-rating-stars-component";
 import { PRODUCTS1 } from './data';
 
 
-const Moreproducts = (props) => {
+const Moreproducts = () => {
   return <>
     <section className="more-featured-products">
     <div className="container-xxl">
@@ -28,7 +28,7 @@ const Moreproducts = (props) => {
                     size={24}
                     activeColor="#EA9D5A"
                 />
-                <p className="price"><span className="red">{product.price} </span>&nbsp; <strike>200$</strike></p>
+                <p className="price"><span className="red">{product.price} </span>&nbsp; <s>200$</s></p>
 
               </div>
               <div className="action-bar position-absolute">

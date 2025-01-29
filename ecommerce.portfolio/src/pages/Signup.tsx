@@ -1,11 +1,11 @@
-import React from 'react';
+
 import { Link, useNavigate } from 'react-router-dom';
 import { userAPI } from '../services/UserService';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { IRegisterRequest } from '../models/ICredentials';
 import { useForm } from 'react-hook-form';
-import { toastSuccess } from '../services/ToastService';
+
 
 const Signup = () => {
   const navigate = useNavigate();

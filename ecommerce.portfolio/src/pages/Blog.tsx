@@ -1,12 +1,10 @@
-/* eslint-disable no-unused-vars */
-import React from 'react'
+
 import b1 from '../assets/images/blog/b1.jpg'
-import b6 from '../assets/images/blog/b6.jpg'
+
 import b2 from '../assets/images/blog/b2.jpg'
 import b3 from '../assets/images/blog/b3.jpg'
 import b4 from '../assets/images/blog/b4.jpg'
-import b5 from '../assets/images/blog/b5.jpg'
-import b7 from '../assets/images/blog/b7.jpg'
+
 
 const blog = () => {
   return <>

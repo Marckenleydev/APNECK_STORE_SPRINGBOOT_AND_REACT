@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-vars */
-import React from 'react'
+
 import { BsDiscord } from 'react-icons/bs'
 import { Link } from 'react-router-dom';
 import { BsTwitter } from 'react-icons/bs'
-import { BsFacebook } from 'react-icons/bs'
+
 import { BsSlack, BsGithub } from 'react-icons/bs'
 import playstore from '../assets/images/pay/play.jpg'
 import appstore from '../assets/images/pay/app.jpg'
@@ -39,18 +39,18 @@ const footer = () => {
           <h2 className='footer-title mb-3'><b>About</b></h2>
           <div className='mb-3'> <Link to='/about' id='footer-links'>About Us</Link>  </div>
           <div className='mb-3'> <Link to='checkout' id='footer-links'>Delivery</Link>  </div>
-          <div className='mb-3'> <Link id='footer-links'>Privacy Policy</Link>  </div>
-          <div className='mb-3'> <Link id='footer-links'>Terms & Conditions</Link>  </div>
-          <div className='mb-3'> <Link id='footer-links'>Fee Policy</Link>  </div>
+          <div className='mb-3'> <Link to="" id='footer-links'>Privacy Policy</Link>  </div>
+          <div className='mb-3'> <Link to="" id='footer-links'>Terms & Conditions</Link>  </div>
+          <div className='mb-3'> <Link to="" id='footer-links'>Fee Policy</Link>  </div>
         </div>
         <div className="col-md-2 col-lg-2 mb-3 mb-md-0">
           <h2 className='footer-title mb-3'><b>Account</b></h2>
           <div className='mb-3'> <Link to='/login' id='footer-links'>Profile</Link>  </div>
           <div className='mb-3'> <Link to='/cart' id='footer-links'>View Cart</Link>  </div>
           <div className='mb-3'> <Link to='/contact' id='footer-links'>Help</Link>  </div>
-          <div className='mb-3'> <Link id='footer-links'>Payments</Link>  </div>
-          <div className='mb-3'> <Link id='footer-links'>My Wishlist</Link>  </div>
-          <div className='mb-3'> <Link id='footer-links'>Coupons</Link> </div>
+          <div className='mb-3'> <Link to="" id='footer-links'>Payments</Link>  </div>
+          <div className='mb-3'> <Link to="" id='footer-links'>My Wishlist</Link>  </div>
+          <div className='mb-3'> <Link to="" id='footer-links'>Coupons</Link> </div>
         </div>
         <div className="col-md-4 col-lg-4">
           <h2 className='footer-title mb-3'><b>Install App</b></h2>

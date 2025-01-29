@@ -1,5 +1,4 @@
-import React from 'react'
-import { CgShoppingCart } from 'react-icons/cg'
+
 import { Link } from 'react-router-dom';
 
 import banner from '../assets/images/banner/b17.jpg'
@@ -8,7 +7,6 @@ import blog1 from '../assets/images/blog/blog-1.jpg'
 import blog2 from '../assets/images/blog/blog-2.jpg'
 import blog3 from '../assets/images/blog/blog-3.jpg'
 import blog4 from '../assets/images/blog/blog-4.jpg'
-import Newsletter from '../components/newsletter';
 import Hero from '../components/Hero';
 import FeaturedProducts from '../components/FeatureProducts';
 import Newarrivals from '../components/Newarrivals';

@@ -22,7 +22,7 @@ const Newarrivals = () => {
             <h5 className='mb-3'>{product.name.slice(0,18)}...</h5>
             <div className="card-footer text-center m-auto">
             <p className="fs-4 text-danger">{product.status} </p>
-            <p className="price"><span className="red"></span><strike>{product.rate} </strike></p>
+            <p className="price"><span className="red"></span><s>{product.rate} </s></p>
             </div>
             <div className="card-footer d-md-none">
                 <div className="d-flex justify-content-between align-items-center">

@@ -23,7 +23,7 @@ export const stripeAPI = createApi({
              
             }),
             transformErrorResponse: processError,
-            providesTags: (result, error)=> ['Stripe']
+            providesTags: ()=> ['Stripe']
            
         }),
        

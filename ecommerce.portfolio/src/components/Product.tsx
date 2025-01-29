@@ -9,6 +9,7 @@ import Moreproducts from './MoreProducts';
 import Newsletter from './newsletter';
 
 
+
 const Product = (props) => {
   return <>
   <section className="product-wrapper p-5">
