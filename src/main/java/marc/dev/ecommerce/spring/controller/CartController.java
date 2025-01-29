@@ -38,6 +38,11 @@ public class CartController {
 
         return ResponseEntity.ok().body(getResponse(request, Map.of("Category",""), "Product remove Successfully", OK));
     }
+    @PostMapping("/clear-cart")
+    public ResponseEntity<Response> cleanCart(@AuthenticationPrincipal User userPrincipal,  HttpServletRequest request){
+        cartService.clearCart( userPrincipal.getUserId());
+        return ResponseEntity.ok().body(getResponse(request, Map.of("Category",""), "Cart clean Successfully", OK));
+    }
 
     @GetMapping("/myCart")
     public ResponseEntity<CartResponse> getUserCart(@AuthenticationPrincipal User userPrincipal, HttpServletRequest request){

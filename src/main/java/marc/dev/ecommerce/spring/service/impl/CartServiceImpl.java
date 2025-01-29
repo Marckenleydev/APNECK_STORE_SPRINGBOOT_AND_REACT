@@ -6,7 +6,6 @@ import lombok.extern.slf4j.Slf4j;
 import marc.dev.ecommerce.spring.Entity.CartEntity;
 import marc.dev.ecommerce.spring.Entity.CartLineEntity;
 import marc.dev.ecommerce.spring.dtoResponse.CartResponse;
-import marc.dev.ecommerce.spring.dtorequest.OrderRequest;
 import marc.dev.ecommerce.spring.exception.ApiException;
 import marc.dev.ecommerce.spring.repository.CartLineRepository;
 import marc.dev.ecommerce.spring.repository.CartRepository;
@@ -14,8 +13,6 @@ import marc.dev.ecommerce.spring.repository.ProductRepository;
 import marc.dev.ecommerce.spring.service.CartLineService;
 import marc.dev.ecommerce.spring.service.CartService;
 import marc.dev.ecommerce.spring.service.ProductService;
-import marc.dev.ecommerce.spring.service.UserService;
-import marc.dev.ecommerce.spring.utils.CartLineUtils;
 import marc.dev.ecommerce.spring.utils.CartUtils;
 import org.springframework.stereotype.Service;
 
@@ -101,7 +98,6 @@ public class CartServiceImpl implements CartService {
                 CartLineEntity cartLine = existingCartLine.get();
                 // Decrease the quantity or remove the product from the cart
                 if (cartLine.getQuantity() > 1) {
-
                     cartLine.setQuantity(cartLine.getQuantity() - 1);
                     // Update CartLine in the database
                     cartLineRepository.save(cartLine);
@@ -109,9 +105,7 @@ public class CartServiceImpl implements CartService {
                 } else if (cartLine.getQuantity() == 1){
                     customerCart.getCartLines().remove(cartLine);
                     cartLineService.deleteCartLine(cartLine.getId());
-
                 }
-
                 // Recalculate the total amount (sum of product prices multiplied by their quantities)
                 double totalAmount = customerCart.getCartLines().stream()
                         .mapToLong(cartLineEntity -> (long) (cartLineEntity.getQuantity() * cartLineEntity.getPrice())).sum();
@@ -126,7 +120,32 @@ public class CartServiceImpl implements CartService {
 
         }
     }
+    @Override
+    public void clearCart(String userId) {
+        var customer = userService.getUserEntityByUserId(userId);
 
+        // Retrieve user's cart
+        CartEntity customerCart = cartRepository.findByCustomer(customer);
+
+        if (customerCart != null && !customerCart.getCartLines().isEmpty()) {
+            // Remove all cart lines
+            customerCart.getCartLines().forEach(cartLine -> cartLineService.deleteCartLine(cartLine.getId()));
+            customerCart.getCartLines().clear();
+
+
+            customerCart.setTotalProduct(0L);
+            customerCart.setTotalAmount(0.0);
+            cartRepository.save(customerCart);
+
+            // Recalculate the total amount (sum of product prices multiplied by their quantities)
+            customerCart.getCartLines().stream()
+                    .mapToLong(cartLineEntity -> (long) (cartLineEntity.getQuantity() * cartLineEntity.getPrice())).sum();
+           customerCart.getCartLines().stream()
+                    .mapToLong(CartLineEntity::getQuantity)
+                    .sum();
+            // Reset totals
+        }
+    }
     @Override
     public CartResponse getUSerCart(String userId) {
 

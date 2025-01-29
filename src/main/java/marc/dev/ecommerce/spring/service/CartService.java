@@ -9,5 +9,7 @@ public interface CartService {
     public CartEntity addProductToCart(Long productId, String userId);
     public void removeProductToCart(Long productId, String userId);
 
+    void clearCart(String userId);
+
     public CartResponse getUSerCart(String userId);
 }

@@ -45,7 +45,7 @@ public class UserController {
     public ResponseEntity<Response> saveUser(@RequestBody @Valid UserRequest user, HttpServletRequest request, AddressEntity address) {
 System.out.println(user.getLastName());
         userService.createUser(user.getFirstName(), user.getLastName(), user.getEmail(), user.getPassword(), user.getAddress());
-        return ResponseEntity.created(getUri()).body(getResponse(request, emptyMap(), "Account created. Check your email to enable your account.", CREATED));
+        return ResponseEntity.created(getUri()).body(getResponse(request, emptyMap(), "Account created Successfully ", CREATED));
     }
 
     @GetMapping("/verify/account")
