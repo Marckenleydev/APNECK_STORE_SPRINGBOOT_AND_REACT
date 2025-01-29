@@ -1,9 +1,10 @@
 
 import { useParams } from 'react-router';
 import { productAPI } from '../services/ProductService';
-import { PRODUCTS, PRODUCTS1 } from './data';
+
 import { Key } from '../enum/cache.key';
 import { toastError } from '../services/ToastService';
+import { PRODUCTS, PRODUCTS1 } from '../components/data';
 
 const ProductDetails = () => {
   const { productId } = useParams();
@@ -18,7 +19,7 @@ const { data: cart, refetch, } =isLogin ?  productAPI.useFetchUserCartQuery(): {
     await addProductToCart(  productId );
   
   
-    refetch()
+    refetch
     } else {
       toastError('Please login to add products to cart')
     
@@ -28,7 +29,7 @@ const { data: cart, refetch, } =isLogin ?  productAPI.useFetchUserCartQuery(): {
  
   const handleRemoveProduct = async (productId: number) => {
     await removeProductFromCart(  productId );
-    refetch()
+    refetch
   };
   const quantity = cart?.products?.find((productCart) => productCart.productId === product?.id)?.quantity || 0;
 
@@ -56,7 +57,7 @@ const { data: cart, refetch, } =isLogin ?  productAPI.useFetchUserCartQuery(): {
               <h3 className="card-text">{product.name}</h3>
               <p className="card-text">
                 <span className="text-danger fs-4 me-2">{product.price}$</span>
-                <strike>{product.price * 2}$</strike>
+                <s>{product.price * 2}$</s>
               </p>
               <p className="card-text">{product.description}</p>
 

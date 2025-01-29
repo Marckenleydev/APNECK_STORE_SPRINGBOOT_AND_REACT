@@ -1,6 +1,6 @@
 
 import Shopitems from '../components/Shopitems';
-import Newsletter from '../components/newsletter';
+import Newsletter from '../components/Newsletter';
 import Hero from '../components/Hero'
 
 

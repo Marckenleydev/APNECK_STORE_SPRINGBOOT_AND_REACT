@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable no-unused-vars */
 
-import ReactStars from "react-rating-stars-component";
+import ReactStars from "react-stars";
 import { Link } from 'react-router-dom';
 
 import { productAPI } from '../services/ProductService';
@@ -18,7 +18,7 @@ const [addProductToCart] = productAPI.useAddProductToCartMutation();
 const handleAddProduct = async (productId: number) => {
   if(isLogin){
     await addProductToCart(  productId );
-    refetch()
+    refetch
   }else{
    
     toastError('Please login to add products to cart')
@@ -42,7 +42,7 @@ const handleAddProduct = async (productId: number) => {
                     activeColor="#EA9D5A"
                 />
                 <div className="mb-3">
-                <p className="price mb-2"><span className="red">{price} </span>&nbsp;  <strike>{price * 2}$</strike></p>
+                <p className="price mb-2"><span className="red">{price} </span>&nbsp;  <s>{price * 2}$</s></p>
                 <Link to={`/details/${referenceId}`} >
                 <p className="text-center"><button className='fs-4' id='clear-cart'>View Details</button></p>
                 </Link>
@@ -51,7 +51,7 @@ const handleAddProduct = async (productId: number) => {
                <button 
                   onClick={() => {
                     handleAddProduct(id);
-                    event.target.classList.toggle("red");
+                  
                   }}
                   className="myButton"
                 >

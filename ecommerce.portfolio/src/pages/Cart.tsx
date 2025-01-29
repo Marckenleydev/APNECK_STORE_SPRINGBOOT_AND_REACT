@@ -18,7 +18,7 @@ const Cart = () => {
 
       await clearCart();
       
-      refetch();
+      refetch;
     };
 
     const handleProceedToCheckout = async (proceedCheckout:any) => {
